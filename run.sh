@@ -1,3 +1,6 @@
+export USERNAME=dockeruser
+export USERPASSWORD=dummypsw
+
 mkdir -p /var/run/sshd
 ssh-keygen -A
 sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -14,6 +17,12 @@ chmod 700 /home/dockeruser/.ssh
 
 #give the user sudo privileges
 usermod -aG wheel dockeruser
+
+#Create EDA pkg and project directories
+mkdir /pkg
+mkdir -p /home/dockeruser/projects
+chown -R dockeruser:dockeruser /home/dockeruser/projects
+chmod 755 /home/dockeruser/projects
 
 #Configure vnc
 mkdir -p /home/dockeruser/.vnc
