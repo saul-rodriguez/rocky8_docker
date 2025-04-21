@@ -1,0 +1,41 @@
+Date: 2025-04-21
+The objective of this docker is to provide a Redhat 8 Linux environment compatible with commercial and open-source EDA tools 
+OS:  Rocky 8.9
+Host used to build and test the docker:
+    AMD Ryzen™ 9 5950X × 32  - 128.0GB
+    Ubuntu 24.04.2 LTS
+    Kernel: Linux 6.11.0-24-generic
+
+
+
+INSTRUCTIONS TO CREATE AND START A CONTAINER
+
+1) To build the docker image called "my_rocky":
+
+docker build -t my_rocky .
+
+2) To run a docker new container called "rocky8_eda":
+
+docker run -d --cpus 4.0 --memory 16G -p 2227:22 -p 5901:5901 --name rocky8_eda my_rocky
+
+3) check if docker container is running and other information such as CONTAINER_ID, NAMES, etc.
+
+docker ps
+
+4) stop a running container
+
+docker stop rocky8_eda
+
+5) restart a stopped container
+
+docker restart rocky8_eda
+
+5) remove container 
+docker rm rocky8
+
+INSTRUCTIONS TO USE THE CONTAINER
+
+This docker supports SSH and vnc. There are 2 available users: root and dockeruser. 
+
+
+
