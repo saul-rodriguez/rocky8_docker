@@ -14,9 +14,9 @@ INSTRUCTIONS TO CREATE AND START A CONTAINER
 
 docker build -t my_rocky .
 
-2) To run a docker new container called "rocky8_eda":
+2) To create and run new container called "rocky8_eda":
 
-docker run -d --cpus 4.0 --memory 16G -p 2227:22 -p 5901:5901 --name rocky8_eda my_rocky
+source rocky8_run.sh
 
 3) check if docker container is running and other information such as CONTAINER_ID, NAMES, etc.
 
@@ -35,7 +35,15 @@ docker rm rocky8
 
 INSTRUCTIONS TO USE THE CONTAINER
 
-This docker supports SSH and vnc. There are 2 available users: root and dockeruser. 
+This docker supports SSH connections with X forward on port 2227 and vnc connections to XFCE on port 5901. 
+There are 2 available accounts created by default: root and dockeruser. The dockeruser account is enabled as sudo. The default username can be changed by modifying the variable USERNAME in the scripts run.sh and rocky8_run.sh.
+
+Connection via ssh can be done with the following command:
+
+ssh -X dockeruser@localhost -p 2227
+
+
+
 
 
 

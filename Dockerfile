@@ -24,7 +24,7 @@ RUN dnf install -y /tmp/compat-db47-4.7.25-28.el7.x86_64.rpm
 RUN dnf clean all
 
 # root account
-RUN echo "root:myroot" | chpasswd
+RUN echo "root:myEdaTools25" | chpasswd
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
 # Expose the SSH and VNC port

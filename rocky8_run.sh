@@ -1,3 +1,4 @@
+export USERNAME=dockeruser
 export CPUS=4.0
 export MEMORY=16G
 export SSH_PORT=2227
@@ -12,6 +13,6 @@ docker run -d --cpus ${CPUS} \
         -p $VNC_PORT:5901 \
         --name ${NAME} \
         -v ${PKG}:/pkg \
-        -v ${PROJECTS}:/home/dockeruser/projects \
+        -v ${PROJECTS}:/home/${USERNAME}/projects \
         my_rocky
         

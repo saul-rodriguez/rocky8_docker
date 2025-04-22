@@ -7,36 +7,36 @@ sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 #Create a user and give ssh access
-useradd -m dockeruser  
-echo "dockeruser:xfce4" | chpasswd
-chown -R dockeruser:dockeruser /home/dockeruser
-chmod 700 /home/dockeruser
-mkdir -p /home/dockeruser/.ssh
-chown -R dockeruser:dockeruser /home/dockeruser/.ssh
-chmod 700 /home/dockeruser/.ssh
+useradd -m $USERNAME  
+echo "$USERNAME:$USERPASSWORD" | chpasswd
+chown -R $USERNAME:$USERNAME /home/$USERNAME
+chmod 700 /home/$USERNAME
+mkdir -p /home/$USERNAME/.ssh
+chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
+chmod 700 /home/$USERNAME/.ssh
 
 #give the user sudo privileges
-usermod -aG wheel dockeruser
+usermod -aG wheel $USERNAME
 
 #Create EDA pkg and project directories
 mkdir /pkg
-mkdir -p /home/dockeruser/projects
-chown -R dockeruser:dockeruser /home/dockeruser/projects
-chmod 755 /home/dockeruser/projects
+mkdir -p /home/$USERNAME/projects
+chown -R $USERNAME:$USERNAME /home/$USERNAME/projects
+chmod 755 /home/$USERNAME/projects
 
 #Configure vnc
-mkdir -p /home/dockeruser/.vnc
-echo "irFtOvonFXCFMHCfoHmiY2sVfIOLH1E5" | vncpasswd -f > /home/dockeruser/.vnc/passwd
-chown -R dockeruser:dockeruser /home/dockeruser/.vnc
-chmod 600 /home/dockeruser/.vnc/passwd
+mkdir -p /home/$USERNAME/.vnc
+echo "irFtOvonFXCFMHCfoHmiY2sVfIOLH1E5" | vncpasswd -f > /home/$USERNAME/.vnc/passwd
+chown -R $USERNAME:$USERNAME /home/$USERNAME/.vnc
+chmod 600 /home/$USERNAME/.vnc/passwd
 dbus-uuidgen | tee /var/lib/dbus/machine-id
-printf "#!/bin/sh\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nstartxfce4 &" > /home/dockeruser/.vnc/xstartup
-chmod +x /home/dockeruser/.vnc/xstartup
+printf "#!/bin/sh\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nstartxfce4 &" > /home/$USERNAME/.vnc/xstartup
+chmod +x /home/$USERNAME/.vnc/xstartup
 
 # start ssh and vnc
 /usr/sbin/sshd
 rm -rf /tmp/.X*
-su - dockeruser -c "vncserver :1 -geometry 1280x1024 -depth 24 -SecurityTypes None"
+su - $USERNAME -c "vncserver :1 -geometry 1280x1024 -depth 24 -SecurityTypes None"
 rm /run/nologin
 tail -f /dev/null
 
