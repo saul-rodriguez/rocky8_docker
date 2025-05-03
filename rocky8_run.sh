@@ -14,5 +14,6 @@ docker run -d --cpus ${CPUS} \
         --name ${NAME} \
         -v ${PKG}:/pkg \
         -v ${PROJECTS}:/home/${USERNAME}/projects \
+        -v /sys:/sys:ro \
         my_rocky
         
