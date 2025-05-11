@@ -21,6 +21,7 @@ RUN dnf install -y libxcb-devel xcb-util-wm xcb-util-image xcb-util-keysyms xcb-
 RUN dnf install -y /tmp/compat-db-headers-4.7.25-28.el7.noarch.rpm
 RUN dnf install -y /tmp/compat-db47-4.7.25-28.el7.x86_64.rpm
 
+
 RUN dnf clean all
 
 # root account
@@ -29,7 +30,7 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
 # Expose the SSH and VNC port
 EXPOSE 22
-EXPOSE 5901
+EXPOSE 5902
 
 ###### CMD ["/usr/sbin/sshd","-D"]
 

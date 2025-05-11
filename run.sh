@@ -19,10 +19,9 @@ chmod 700 /home/$USERNAME/.ssh
 usermod -aG wheel $USERNAME
 
 #Create EDA pkg and project directories
-mkdir /pkg
-mkdir -p /home/$USERNAME/projects
-chown -R $USERNAME:$USERNAME /home/$USERNAME/projects
-chmod 755 /home/$USERNAME/projects
+mkdir /opt
+mkdir /opt/tools
+ln -s /opt/tools /pkg
 
 #Configure vnc
 mkdir -p /home/$USERNAME/.vnc

@@ -42,6 +42,9 @@ Connection via ssh can be done with the following command:
 
 ssh -X dockeruser@localhost -p 2227
 
+with light compression:
+
+ssh -X -C -c aes128-gcm@openssh.com dockeruser@localhost -p 2227
 
 
 
