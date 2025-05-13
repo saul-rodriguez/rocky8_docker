@@ -30,7 +30,7 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
 # Expose the SSH and VNC port
 EXPOSE 22
-EXPOSE 5902
+EXPOSE 5901
 
 ###### CMD ["/usr/sbin/sshd","-D"]
 

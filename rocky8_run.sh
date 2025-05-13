@@ -1,8 +1,8 @@
-export USERNAME=dockeruser
+export USERNAME=saul
 export CPUS=4.0
 export MEMORY=16G
 export SSH_PORT=2227
-export VNC_PORT=5902
+export VNC_PORT=5901
 export NAME=rocky8_eda
 export PKG=/home/saul/installs/opt
 #export PROJECTS=/home/saul/projects/projects_docker
@@ -11,7 +11,7 @@ export HOME_DIR=/home/saul/projects/home_docker
 docker run -d --cpus ${CPUS} \
         --memory ${MEMORY} \
         -p $SSH_PORT:22 \
-        -p $VNC_PORT:5902 \
+        -p $VNC_PORT:5901 \
         --name ${NAME} \
         -v ${PKG}:/opt \
         -v ${HOME_DIR}:/home/${USERNAME} \

@@ -1,4 +1,4 @@
-export USERNAME=dockeruser
+export USERNAME=saul
 export USERPASSWORD=dummypsw
 
 mkdir -p /var/run/sshd
