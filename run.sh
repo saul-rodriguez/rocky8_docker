@@ -35,7 +35,7 @@ chmod +x /home/$USERNAME/.vnc/xstartup
 # start ssh and vnc
 /usr/sbin/sshd
 rm -rf /tmp/.X*
-su - $USERNAME -c "vncserver :1 -geometry 1280x1024 -depth 24 -SecurityTypes None"
+su - $USERNAME -c "vncserver :2 -geometry 1280x1024 -depth 24 -SecurityTypes None"
 rm /run/nologin
 tail -f /dev/null
 
