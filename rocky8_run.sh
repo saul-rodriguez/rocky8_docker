@@ -4,9 +4,9 @@ export MEMORY=32G
 export SSH_PORT=2227
 export VNC_PORT=5902
 export NAME=rocky8_eda
-export PKG=/opt
+export PKG=/secondary/opt
 #export PROJECTS=/home/saul/projects/projects_docker
-export HOME_DIR=/home/saul/projects/home_docker
+export HOME_DIR=/secondary/home_docker
 
 docker run -d --cpus ${CPUS} \
         --memory ${MEMORY} \
@@ -18,3 +18,5 @@ docker run -d --cpus ${CPUS} \
         -v /sys:/sys:ro \
         my_rocky
         
+        
+

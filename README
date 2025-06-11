@@ -1,10 +1,11 @@
 Date: 2025-04-21
-The objective of this docker is to provide a Redhat 8 Linux environment compatible with commercial and open-source EDA tools 
+The objective of this docker is to provide a Redhat 8 Linux environment compatible with commercial EDA tools 
 OS:  Rocky 8.9
 Host used to build and test the docker:
     AMD Ryzen™ 9 5950X × 32  - 128.0GB
     Ubuntu 24.04.2 LTS
     Kernel: Linux 6.11.0-24-generic
+    Docker: V4.41.2
 
 
 
@@ -13,6 +14,11 @@ INSTRUCTIONS TO CREATE AND START A CONTAINER
 1) To build the docker image called "my_rocky":
 
 docker build -t my_rocky .
+
+or run the script
+
+source create_image.sh
+
 
 2) To create and run new container called "rocky8_eda":
 
@@ -31,6 +37,7 @@ docker stop rocky8_eda
 docker restart rocky8_eda
 
 5) remove container 
+
 docker rm rocky8
 
 INSTRUCTIONS TO USE THE CONTAINER
@@ -40,11 +47,11 @@ There are 2 available accounts created by default: root and dockeruser. The dock
 
 Connection via ssh can be done with the following command:
 
-ssh -X dockeruser@localhost -p 2227
+ssh -X saul@localhost -p 2227
 
-with light compression:
+for remote connection it may be beneficial to run it with light compression:
 
-ssh -X -C -c aes128-gcm@openssh.com dockeruser@localhost -p 2227
+ssh -X -C -c aes128-gcm@openssh.com saul@localhost -p 2227
 
 
 
