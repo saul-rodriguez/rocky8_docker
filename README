@@ -38,7 +38,7 @@ docker restart rocky8_eda
 
 5) remove container 
 
-docker rm rocky8
+docker rm rocky8_eda
 
 INSTRUCTIONS TO USE THE CONTAINER
 
@@ -54,6 +54,9 @@ for remote connection it may be beneficial to run it with light compression:
 ssh -X -C -c aes128-gcm@openssh.com saul@localhost -p 2227
 
 
+INSTRUCTIONS TO START THE DOCKER DEAMON REMOTELY
 
+Start docker deamon:
 
+systemctl --user restart docker-desktop
 

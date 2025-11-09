@@ -14,6 +14,12 @@ chmod 700 /home/$USERNAME
 mkdir -p /home/$USERNAME/.ssh
 chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
 chmod 700 /home/$USERNAME/.ssh
+cp /root/.bash_profile /home/$USERNAME/.bash_profile
+chown $USERNAME:$USERNAME /home/$USERNAME/.bash_profile
+chmod 644 /home/$USERNAME/.bash_profile
+cp /root/.bashrc /home/$USERNAME/.bashrc
+chown $USERNAME:$USERNAME /home/$USERNAME/.bashrc
+chmod 644 /home/$USERNAME/.bashrc
 
 #give the user sudo privileges
 usermod -aG wheel $USERNAME

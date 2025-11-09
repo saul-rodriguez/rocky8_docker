@@ -1,4 +1,5 @@
 export USERNAME=saul
+export HOSTN=edatools
 export CPUS=6.0
 export MEMORY=32G
 export SSH_PORT=2227
@@ -9,6 +10,7 @@ export PKG=/secondary/opt
 export HOME_DIR=/secondary/home_docker
 
 docker run -d --cpus ${CPUS} \
+	--hostname ${HOSTN} \
         --memory ${MEMORY} \
         -p $SSH_PORT:22 \
         -p $VNC_PORT:5902 \
