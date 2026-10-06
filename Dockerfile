@@ -18,6 +18,7 @@ RUN dnf install -y compat-openssl10 mesa-libGLU libnsl apr-util glibc-devel
 RUN dnf install -y glibc-devel.i686 glibc-devel
 RUN dnf install -y libxcb-devel xcb-util-wm xcb-util-image xcb-util-keysyms xcb-util-renderutil
 RUN dnf install -y rsh
+RUN dnf install -y xorg-x11-fonts-75dpi xorg-x11-fonts-100dpi
 
 RUN dnf install -y /tmp/compat-db-headers-4.7.25-28.el7.noarch.rpm
 RUN dnf install -y /tmp/compat-db47-4.7.25-28.el7.x86_64.rpm
