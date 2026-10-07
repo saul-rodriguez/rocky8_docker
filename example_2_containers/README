@@ -1,0 +1,7 @@
+Two containers can be started in the same machine and accessed via vnc.
+
+1) The name of the containers need to be different (NAME)
+2) The vnc ports that are mapped from the host machine need to be different (VNC_PORT)
+3) Once the containers are started, the vnc clients use different ports. The example show two containers that can be accessed by using localhost:2 and localhost:3
+
+
