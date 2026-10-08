@@ -1,0 +1,20 @@
+The following procedure is needed to create and run containers for different users in the same machine:
+
+1) Create a new user as normal
+
+2) Change the value of the viariable USERNAME and VNC_PORT
+
+2.1) The value of USERNAME shoulr be changed to the name of the new user. This must be done in all the .sh scripts:
+ - create_image.sh
+ - run.sh
+ - cmos_docker_run.sh
+ 
+2.2) The VNC_PORT must be a different number for each user. This must be changed in the script cmos_docker_run.sh
+ 
+3) Create an image:
+
+  source create_image.sh
+  
+4) Create and start a container: 
+
+  source cmos_docker_run.sh
